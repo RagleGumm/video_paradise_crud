@@ -1,0 +1,40 @@
+{% extends "movies/base.html" %}
+
+{% block content %}
+  <h1>Movie Details</h1>
+  <p>
+	Main title: <i>{{object.main_title}}</i>
+  </p>
+  <hr class="division">
+  <p>
+	Other titles: <i>{{object.other_titles}}</i>
+  </p>
+  <hr class="division">
+  <p>
+	Production year: <i>{{ object.production_year }}</i>
+  </p>
+  <hr class="division">
+  <p>
+	Production country: <i>{{ object.production_country }}</i>
+  </p>
+  <hr class="division">
+  <p>
+	Genre: <i>{{ object.genre }}</i>
+  </p>
+  <hr class="division">
+  <p>
+	Medium: <i>{{ object.medium }}</i>
+  </p>
+  <hr class="division">
+  <p>
+	Rating: <i>{{ object.rating }}</i>
+  </p>
+  <hr class="division">
+  <p>
+	Comments: <i>{{ object.comments }}</i>
+  </p>
+  <br>
+  <form>	
+   <input type="button" value=">>>Back" onclick="history.back()">
+  </form>
+{% endblock %}

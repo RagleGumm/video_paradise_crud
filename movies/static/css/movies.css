@@ -1,0 +1,103 @@
+body {
+  background-color: white;
+  font-family: monospace;
+  color: black;
+  font-size: 10pt;
+}
+
+div.page-header {
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 20px 20px 20px 40px;
+  position: fixed;
+  top: 0;
+  width: 94%;
+  font-size: 9pt;
+  box-shadow: 10px 10px 10px lightgray;
+}
+
+div.sidenav {
+  height: 90%;
+  width: 10%;
+  position: fixed;
+  top: 345;
+  left: 0.5%;
+  background-color: white;
+  color: black;
+   padding: 20px 20px 20px 40px;
+  box-shadow: 10px 10px 10px lightgray;
+  border-radius: 15px;
+}
+
+div#content {
+  margin-top:345px;
+  padding:20px;
+  margin-left:15%;
+}
+
+table {
+  border-collapse: collapse;  
+  width: 96%;
+  background-color: white;
+  border: 1px solid black;
+}
+
+table.tr:hover {
+  text-decoration: underline;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th{
+	color: white;
+	background-color: black;	
+}
+
+a {
+  color: black;
+}
+
+hr {
+  border: 1px dashed;
+  color: black;
+}
+
+hr.division {
+  width: 40%;
+  margin: 0;
+  border: 1px dashed;
+  color: black;
+}
+
+input[type=submit] {
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+input[type=submit]:hover {
+  background-color: black;
+  color: white;
+}
+
+input[type=button] {
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+	  
+input[type=button]:hover {
+  background-color: black;
+  color: white;
+}

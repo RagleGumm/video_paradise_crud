@@ -1,0 +1,42 @@
+{% extends "movies/base.html" %}
+
+{% block content %}
+  {% if object_list %}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Production Year</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for movie in object_list %}
+        <tr>
+          <td>{{ movie.main_title }}</td>
+          <td>{{ movie.production_year }}</td>
+          <td>
+			<a href="{% url "movie_view" movie.id %}">view</a>
+          </td>
+          <td>
+			<a href="{% url "movie_edit" movie.id %}">edit</a>
+          </td>
+          <td>
+			<a href="{% url "movie_delete" movie.id %}">delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <h1>Sorry, no results.</h1>
+  {% endif %}
+  {% if request.method == 'POST' %}
+    <p>
+      <br>
+	  <input type="button" value=">>>Back" onclick="history.back()">
+    </p>
+  {% endif %}
+{% endblock %}
