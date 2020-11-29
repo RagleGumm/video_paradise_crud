@@ -10,7 +10,7 @@ The logo, I mean.
 
 There are already some movies added, as well as users:<br>
 - admin login/password: burt_gummer/MyCannon
-- application user/password: val_mckee/CanYouFlySucker
+- user login/password: val_mckee/CanYouFlySucker
 
 ## Requirements
 
