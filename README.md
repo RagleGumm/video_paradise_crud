@@ -3,7 +3,7 @@
 Video Paradise is a simple CRUD application for managing your home movie database.<br>
 That is, if you are a neanderthal and still have movies on physical media.<br>
 Offers basic functionalities (besides creating/retrieving/updating and deleting) like filtering and simple text search.<br>
-Creating cool logo was the biggest part of the development, so I hope you'll enjoy it.<br>
+Creating cool logo was a huge part of the development process, so I hope you'll enjoy it.<br>
 The logo, I mean.
 
 ## Movies/Users
