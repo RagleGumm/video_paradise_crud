@@ -1,7 +1,11 @@
 {% extends "movies/base.html" %}
+{% load static %}
 
 {% block content %}
   <h1>Movie Details</h1>
+  <div class="image">
+    <img src="{% if object.image %}{{object.image.url}}{% else %}{% static "img/no_image.png" %}{% endif %}" width=197 height=302>
+  </div>
   <p>
 	Main title: <i>{{object.main_title}}</i>
   </p>
