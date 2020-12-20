@@ -71,7 +71,7 @@ def movie_create(
     request,
     template_name="movies/movie_form.html"
 ):
-    form = MovieForm(request.POST or None)
+    form = MovieForm(request.POST or None, files=request.FILES)
     if form.is_valid():
         form.save()
         return redirect("movie_list")
@@ -85,10 +85,13 @@ def movie_update(
     template_name="movies/movie_form.html"
 ):
     movie = get_object_or_404(Movie, pk=pk)
-    form = MovieForm(request.POST or None, instance=movie)
-    if form.is_valid():
-        form.save()
-        return redirect("movie_list")
+    if request.method == 'POST':                                 
+        form = MovieForm(data=request.POST, instance=movie, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("movie_list")
+    else:
+        form = MovieForm(request.POST or None, instance=movie)
     return render(request, template_name, {"form": form})
 
 
