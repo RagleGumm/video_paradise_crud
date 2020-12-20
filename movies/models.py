@@ -67,6 +67,11 @@ class Movie(models.Model):
         max_length=200,
         blank=True
     )
+    
+    image = models.ImageField(
+        upload_to='uploads/%Y/%m/%d',
+        blank=True
+    )
 
     class Meta:
         ordering = ("main_title",)
