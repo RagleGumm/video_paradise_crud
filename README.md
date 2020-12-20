@@ -2,7 +2,7 @@
 
 Video Paradise is a simple CRUD application for managing your home movie database.<br>
 That is, if you are a neanderthal and still have movies on physical media.<br>
-Offers basic functionalities (besides creating/retrieving/updating and deleting) like filtering and simple text search.<br>
+Offers basic functionalities (besides creating/retrieving/updating and deleting) like filtering, simple text search, possibility to upload covers.<br>
 Creating cool logo was a huge part of the development process, so I hope you'll enjoy it.<br>
 The logo, I mean.
 
@@ -29,6 +29,5 @@ Go to your browser and type: http://127.0.0.1:8000/movies
 - Mass data upload/export
 - Sorting data and search results
 - Pagination
-- Uploading movie covers
 - Movie covers gallery
 - "Movie of the day" feature
