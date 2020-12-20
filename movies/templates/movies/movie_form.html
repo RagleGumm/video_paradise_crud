@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>Movie Edit</h1>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {{ form.as_p }}
 	{% csrf_token %}
 	<br>
