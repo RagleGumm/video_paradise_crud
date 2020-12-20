@@ -15,6 +15,7 @@ class MovieForm(ModelForm):
             "medium",
             "rating",
             "comments",
+            "image"
         ]
 
 
