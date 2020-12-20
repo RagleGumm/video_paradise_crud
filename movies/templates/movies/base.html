@@ -30,7 +30,9 @@
 <body> 
   {% if user.is_authenticated %}
     <div class="sidenav">
-      <p>Movies: {% total_movies %}</p>
+      <p>
+	    Movies: {% total_movies %}
+	  </p>
       <hr>
       <p>
 	    <a href="{% url "movie_list" %}">Full list</a>
