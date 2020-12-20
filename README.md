@@ -30,4 +30,5 @@ Go to your browser and type: http://127.0.0.1:8000/movies
 - Sorting data and search results
 - Pagination
 - Movie covers gallery
+- Thumbnails
 - "Movie of the day" feature
