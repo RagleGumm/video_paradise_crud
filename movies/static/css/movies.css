@@ -31,6 +31,13 @@ div.sidenav {
   border-radius: 15px;
 }
 
+div.image {
+  padding-left: 0px; 
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-right: 0px;
+}
+
 div#content {
   margin-top:345px;
   padding:20px;
