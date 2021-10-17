@@ -1,12 +1,19 @@
 {% extends "movies/base.html" %}
 
 {% block content %}
+
   <h1>Movie Filter</h1>
+ 
   <form method="post">
-    {{ form.as_p }}
-	{% csrf_token %}
-	<br>
-	<input type="button" value=">>>Cancel" onclick="window.location.href='{% url "movie_list" %}';">
+  
+    <div class="page-section">
+      {{ form.as_p }}
+	  {% csrf_token %}
+	</div>
+
+	<input type="button" value=">>>Cancel" onclick="window.location.href='{% url "movie_list" %}'">
     <input type="submit" value=">>Filter">
+
   </form>
+
 {% endblock %}

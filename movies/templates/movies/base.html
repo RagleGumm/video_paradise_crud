@@ -1,10 +1,14 @@
 {% load static %}
 {% load video_paradise_tags %}
+
 <!DOCTYPE html>
 <html>
+
 <head>
+
   <link rel="stylesheet" href="{% static 'css/movies.css' %}">
-  <div class="page-header">
+  
+  <div id="page-header">
     <pre>
         ____        _ ____ ______   _______  ________    
         \   \      / |    |      \ |    ___|/        \
@@ -25,11 +29,14 @@
                    HOME ENTERTAINMENT CENTER
     </pre> 
   </div>
+
 </head>
 
 <body> 
+
   {% if user.is_authenticated %}
-    <div class="sidenav">
+
+    <div id="sidenav">
       <p>
 	    Movies: {% total_movies %}
 	  </p>
@@ -38,7 +45,7 @@
 	    <a href="{% url "movie_list" %}">Full list</a>
 	  </p>
       <p>
-	    <a href="{% url "movie_new" %}">Add new movie</a>
+	    <a href="{% url "movie_add" %}">Add new movie</a>
 	  </p>
       <p>
 	    <a href="{% url "movie_filter" %}">Filter</a>
@@ -50,13 +57,16 @@
 	    <a href="{% url "logout" %}">Log out</a>
 	  </p>
 	</div>
+	
     <div id="content">
 	  {% block content %}
 	  {% endblock %}
 	</div> 
+
   {% else %} 
     {% block login %}
 	{% endblock %} 
   {% endif %}
+
 </body>
 </html>
