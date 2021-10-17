@@ -4,30 +4,31 @@ from .forms import MovieSearchForm, MovieForm, MovieFilter
 from .models import Movie
 
 
-# Create your views here.
 @login_required
-def get_movie(
-    request,
-    template_name="movies/movie_search.html"
-):
+def find_movie(request):
+    """Returns list of movies meeting search form criteria."""
     if request.method == "POST":
         form = MovieSearchForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data["search_condition"]
             movie = Movie.objects.filter(main_title__icontains=cd)
-            data = {}
-            data["object_list"] = movie
-            return render(request, "movies/movie_list.html", data)
+            return render(
+                request=request,
+                template_name="movies/movie_list.html",
+                context={"object_list": movie}
+            )
     else:
         form = MovieSearchForm()
-    return render(request, template_name, {"form": form})
+        return render(
+            request=request,
+            template_name="movies/movie_search.html",
+            context={"form": form}
+        )
 
 
 @login_required
-def filter_movie(
-    request,
-    template_name="movies/movie_filter.html"
-):
+def filter_movies(request):
+    """Returns list of movies meeting filter form criteria."""
     if request.method == "POST":
         form = MovieFilter(request.POST)
         if form.is_valid():
@@ -35,55 +36,64 @@ def filter_movie(
             sel_medium = form.cleaned_data["medium"]
             sel_rating = form.cleaned_data["rating"]
             movie = Movie.objects.filter(
-                genre=sel_genre, medium=sel_medium, rating=sel_rating
+                genre=sel_genre,
+                medium=sel_medium, 
+                rating=sel_rating
             )
-            data = {}
-            data["object_list"] = movie
-            return render(request, "movies/movie_list.html", data)
+            return render(
+                request=request,
+                template_name="movies/movie_list.html",
+                context={"object_list": movie}
+            )
     else:
         form = MovieFilter()
-    return render(request, template_name, {"form": form})
+        return render(
+            request=request,
+            template_name="movies/movie_filter.html",
+            context={"form": form}
+        )
 
 
 @login_required
-def movie_list(
-    request,
-    template_name="movies/movie_list.html"
-):
+def movie_list(request):
+    """Displays full movie list."""
     movie = Movie.objects.all()
-    data = {}
-    data["object_list"] = movie
-    return render(request, template_name, data)
+    return render(
+        request=request,
+        template_name="movies/movie_list.html",
+        context={"object_list": movie}
+    )
 
 
 @login_required
-def movie_view(
-    request,
-    pk,
-    template_name="movies/movie_detail.html"
-):
+def movie_details(request, pk):
+    """Displays detailed view of selected movie."""
     movie = get_object_or_404(Movie, pk=pk)
-    return render(request, template_name, {"object": movie})
+    return render(
+        request=request,
+        template_name="movies/movie_detail.html",
+        context={"object": movie}
+    )
 
 
 @login_required
-def movie_create(
-    request,
-    template_name="movies/movie_form.html"
-):
+def movie_add(request):
+    """Allows adding new movie."""
     form = MovieForm(request.POST or None, files=request.FILES)
     if form.is_valid():
         form.save()
         return redirect("movie_list")
-    return render(request, template_name, {"form": form})
+    else:
+        return render(
+            request=request,
+            template_name="movies/movie_form.html",
+            context={"form": form}
+        )
 
 
 @login_required
-def movie_update(
-    request,
-    pk,
-    template_name="movies/movie_form.html"
-):
+def movie_edit(request, pk):
+    """Allows editing movie details."""
     movie = get_object_or_404(Movie, pk=pk)
     if request.method == 'POST':                                 
         form = MovieForm(data=request.POST, instance=movie, files=request.FILES)
@@ -92,17 +102,23 @@ def movie_update(
             return redirect("movie_list")
     else:
         form = MovieForm(request.POST or None, instance=movie)
-    return render(request, template_name, {"form": form})
+        return render(
+            request=request,
+            template_name="movies/movie_form.html",
+            context={"form": form}
+        )
 
 
 @login_required
-def movie_delete(
-    request,
-    pk,
-    template_name="movies/movie_confirm_delete.html"
-):
+def movie_delete(request, pk):
+    """Allows deletion of selected movie."""
     movie = get_object_or_404(Movie, pk=pk)
     if request.method == "POST":
         movie.delete()
         return redirect("movie_list")
-    return render(request, template_name, {"object": movie})
+    else:
+        return render(
+            request=request,
+            template_name="movies/movie_confirm_delete.html",
+            context={"object": movie}
+        )
