@@ -5,7 +5,7 @@ body {
   font-size: 10pt;
 }
 
-div.page-header {
+div#page-header {
   background-color: black;
   color: white;
   border-radius: 15px;
@@ -18,7 +18,7 @@ div.page-header {
   box-shadow: 10px 10px 10px lightgray;
 }
 
-div.sidenav {
+div#sidenav {
   height: 90%;
   width: 10%;
   position: fixed;
@@ -31,17 +31,27 @@ div.sidenav {
   border-radius: 15px;
 }
 
-div.image {
-  padding-left: 0px; 
-  padding-top: 0px;
-  padding-bottom: 10px;
-  padding-right: 0px;
+div#login {
+  margin-top:345px;
+  padding:20px;
+  margin-left:1%;
 }
 
 div#content {
   margin-top:345px;
   padding:20px;
   margin-left:15%;
+}
+
+div.page-section {
+  margin-bottom: 25px;
+}
+
+div.image {
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-right: 0px;
 }
 
 table {
