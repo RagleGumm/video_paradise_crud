@@ -1,17 +1,16 @@
 {% extends "movies/base.html" %}
 
 {% block login %}
-  <div style="margin-top:345px;padding:20px;margin-left:1%;">
-    <h1>Login</h1>
-    <div class="login-form">
-      <form action="{% url 'login' %}"" method ="post">
-        {{form.as_p}}
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{next}}"/>
-        <p>
-	      <input type="submit" value=">>>Submit">
-	    </p>
-      </form>
-    </div>	
+
+  <div id="login">
+
+    <form action="{% url 'login' %}" method ="post">
+      {{form.as_p}}
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{next}}">
+      <input type="submit" value=">>>Submit">
+    </form>
+
   </div>
+
 {% endblock %}
