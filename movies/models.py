@@ -5,7 +5,6 @@ from django.urls import reverse
 
 
 class Movie(models.Model):
-
     GENRE_CHOICES = (
         ("horror", "horror"),
         ("sci-fi", "sci-fi"),
@@ -14,7 +13,6 @@ class Movie(models.Model):
         ("comedy", "comedy"),
         ("drama", "drama"),
     )
-
     MEDIUM_CHOICES = (
         ("dvd", "dvd"),
         ("dvd-r", "dvd-r"),
@@ -23,7 +21,6 @@ class Movie(models.Model):
         ("vcd", "vcd"),
         ("vhs", "vhs"),
     )
-
     RATING_CHOICES = (
         ("1", "1"),
         ("2", "2"),
@@ -32,9 +29,7 @@ class Movie(models.Model):
         ("5", "5"),
     )
 
-    main_title = models.CharField(
-        max_length=200
-    )
+    main_title = models.CharField(max_length=200)
     other_titles = models.CharField(
         max_length=200,
         blank=True
@@ -67,7 +62,6 @@ class Movie(models.Model):
         max_length=200,
         blank=True
     )
-    
     image = models.ImageField(
         upload_to='uploads/%Y/%m/%d',
         blank=True
